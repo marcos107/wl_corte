@@ -63,7 +63,7 @@ function add_arquivo($abre_dir){
 
 if (isset($_POST['file_plus1'])) {
     do{
-        $caminho_temp = '..\\..\\..\\..\\hd\\temp\\'.rand(1000,100000).'\\';//cria um caminho temporario
+        $caminho_temp = '..\\..\\..\\hd\\temp\\'.rand(1000,100000).'\\';//cria um caminho temporario
     }while(is_dir($caminho_temp));
     sql("INSERT INTO `desenhos_temp`(`destino`,`diretorio`, `individuo`, `data_add`, `status`) VALUES ('".$abre_dir."','".str_replace('\\','/',$caminho_temp)."','".$_SESSION['usuario']."','".date('d/m/Y H:i:s')."','processando')");
     mkdir($caminho_temp, 0755, true);//cria uma pasta teporaria
@@ -350,7 +350,7 @@ if ((isset($_POST['file_plus2']) && (isset($_SESSION['arquivo_name'])))) {
 <?php
 menu($_SESSION['usuario'],'<li><input type="submit" name="voltar" value="Voltar" /></li>');
 echo '<div class="main">';
-$base_dir = '../../../../hd/wl_desenhos/';
+$base_dir = '../../../hd/wl_desenhos/';
 //$base_dir = 'OneDrive';
 if (isset($_GET['dir'])) {
     $abre_dir = ($_GET['dir'] != '' ? $_GET['dir'] : $base_dir);
